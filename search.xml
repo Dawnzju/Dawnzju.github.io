@@ -8,6 +8,7 @@
 <pre><code>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, &quot;ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,&quot; in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. 
 </code></pre>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>SMART NoC, which transmits unconflicted flits to distant processing elements (PEs) in one cycle through the express bypass, is a high-performance NoC design proposed recently.<br>However, if contention occurs, flits with low priority would not only be buffered but also could not fully utilize bypass. Although there exist several routing algorithms that decrease contentions by rounding busy routers and links, they cannot be directly applicable to SMART since it lacks the support for arbitrary-turn (i.e., the number and direction of turns are free of constraints) routing. Thus, in this article, to minimize contentions and further utilize bypass, we propose an improved SMART NoC, called ArSMART, in which arbitrary-turn transmission is enabled. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router. </p>
+<span id="more"></span>
 <p>Since the long-range transmission in SMART NoC needs to bypass the intermediate arbitration, to enable this feature, we directly configure the input and output ports connection rather than apply hop-by-hop table-based arbitration. To further explore the higher communication capabilities, effective adaptive routing algorithms that are compatible with ArSMART are proposed. The route computation overhead, one of the main concerns for adaptive routing algorithms, is hidden by our carefully designed control mechanism.<br>Compared with the state-of-the-art SMART NoC, the experimental results demonstrate an average reduction of 40.7% in application schedule length and 29.7% in energy consumption.</p>
 <hr>
 <h2 id="Introduction-Preview"><a href="#Introduction-Preview" class="headerlink" title="Introduction Preview"></a>Introduction Preview</h2><p>With the increasing number of processing elements (PEs) integrated into one chip, the communication between PEs becomes the bottleneck for performance improvement. Based on the modified Amdahl’s law which considers the effect of communication and synchronization in multi-core systems, the communication bottleneck damps the speedup gained by parallelism and computation acceleration. To support high-speed communication among PEs, network-on-chip (NoC), as a widespread communication infrastructure for large-scale many-core systems, has been refined and evolved in recent works. SMART NoC, which transmits unconflicted flits to distant PEs within one cycle through express long-distance bypass paths, is one of the most successful NoC designs. Experiments show that if every flit is magically sent from the source to its destination by using the single-cycle long-distance path, up to 85% application schedule length reduction can be achieved compared with state-of-the-art traditional NoCs. This is the “ideal” performance that SMART provides, with the optimistic assumption of single-cycle source-destination paths for all flits.</p>
@@ -44,7 +45,8 @@
 <blockquote>
 <p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li and Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in Proceedings of International Conference on Compilers, Architecture, and Synthesis of Embedded Systems (ESWEEK-CASES ‘21), October 08-15, 2021, Virtual Event.</p>
 </blockquote>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Heterogeneous computing systems (HCSs) , which consist of various processing elements (PEs) that vary in their processing ability, are usually facilitated by the network-on-chip (NoC) to interconnect its components. The emerging point-to-point NoCs which support single-cycle-multi-hop transmission, reduce or eliminate the latency dependence on distance, addressing the scalability concern raised by high latency for long-distance transmission and enlarging the design space of the routing algorithm to search the non-shortest paths. For such point-to-point NoC-based HCSs, resource management strategies which are managed by compilers, scheduler, or controllers, e.g., mapping and routing, are complicated for the following reasons: </p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><span id="more"></span>
+<p>Heterogeneous computing systems (HCSs) , which consist of various processing elements (PEs) that vary in their processing ability, are usually facilitated by the network-on-chip (NoC) to interconnect its components. The emerging point-to-point NoCs which support single-cycle-multi-hop transmission, reduce or eliminate the latency dependence on distance, addressing the scalability concern raised by high latency for long-distance transmission and enlarging the design space of the routing algorithm to search the non-shortest paths. For such point-to-point NoC-based HCSs, resource management strategies which are managed by compilers, scheduler, or controllers, e.g., mapping and routing, are complicated for the following reasons: </p>
 <ul>
 <li>(1) Due to the heterogeneity, mapping and routing need to optimize computation and communication concurrently (for homogeneous computing systems, only communication). </li>
 <li>(2) Conducting mapping and routing consecutively cannot minimize the schedule length in most cases since the PEs with high processing ability may locate in the crowded area and suffer from high resource contention overhead. </li>
@@ -92,6 +94,7 @@
 <pre><code>Hui Chen, Zihao Zhang, Peng Chen, Shien Zhu, Weichen Liu. ``Parallel Multipath Transmission for Burst Traffic Optimization in Point-to-Point NoCs.&#39;&#39; In Proceedings of the Great Lakes Symposium on VLSI 2021(GLSVLSI ’21), June 22–25, 2021, Virtual Event, USA.ACM, New York, NY
 </code></pre>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Network-on-chip (NoC) is a promising solution to connect more than hundreds of processing elements (PEs). As the number of PEs increases, the high communication latency caused by the burst traffic hampers the speedup gained by computation acceleration. Although parallel multipath transmission is an effective method to reduce transmission latency, its advantages have not been fully exploited in previous works, especially for emerging point-to-point NoCs since: </p>
+<span id="more"></span>
 <ul>
 <li>(1) Previous static message splitting strategy increases contentions when traffic loads are heavy, degrading NoC performance. </li>
 <li>(2) Only limited shortest paths are chosen, ignoring other possible paths without contentions. </li>
@@ -120,9 +123,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/08/27/hello-world/</url>
+    <title>Hello World - Hexo</title>
+    <url>/2020/04/27/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -136,5 +141,11 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>ReadMe</category>
+      </categories>
+      <tags>
+        <tag>ReadMe</tag>
+      </tags>
   </entry>
 </search>

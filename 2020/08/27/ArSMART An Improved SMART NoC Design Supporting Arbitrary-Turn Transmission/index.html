@@ -114,6 +114,7 @@
 <pre><code>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, &quot;ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,&quot; in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. 
 </code></pre>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>SMART NoC, which transmits unconflicted flits to distant processing elements (PEs) in one cycle through the express bypass, is a high-performance NoC design proposed recently.<br>However, if contention occurs, flits with low priority would not only be buffered but also could not fully utilize bypass. Although there exist several routing algorithms that decrease contentions by rounding busy routers and links, they cannot be directly applicable to SMART since it lacks the support for arbitrary-turn (i.e., the number and direction of turns are free of constraints) routing. Thus, in this article, to minimize contentions and further utilize bypass, we propose an improved SMART NoC, called ArSMART, in which arbitrary-turn transmission is enabled. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router. </p>
+<span id="more"></span>
 <p>Since the long-range transmission in SMART NoC needs to bypass the intermediate arbitration, to enable this feature, we directly configure the input and output ports connection rather than apply hop-by-hop table-based arbitration. To further explore the higher communication capabilities, effective adaptive routing algorithms that are compatible with ArSMART are proposed. The route computation overhead, one of the main concerns for adaptive routing algorithms, is hidden by our carefully designed control mechanism.<br>Compared with the state-of-the-art SMART NoC, the experimental results demonstrate an average reduction of 40.7% in application schedule length and 29.7% in energy consumption.</p>
 <hr>
 <h2 id="Introduction-Preview"><a href="#Introduction-Preview" class="headerlink" title="Introduction Preview"></a>Introduction Preview</h2><p>With the increasing number of processing elements (PEs) integrated into one chip, the communication between PEs becomes the bottleneck for performance improvement. Based on the modified Amdahl’s law which considers the effect of communication and synchronization in multi-core systems, the communication bottleneck damps the speedup gained by parallelism and computation acceleration. To support high-speed communication among PEs, network-on-chip (NoC), as a widespread communication infrastructure for large-scale many-core systems, has been refined and evolved in recent works. SMART NoC, which transmits unconflicted flits to distant PEs within one cycle through express long-distance bypass paths, is one of the most successful NoC designs. Experiments show that if every flit is magically sent from the source to its destination by using the single-cycle long-distance path, up to 85% application schedule length reduction can be achieved compared with state-of-the-art traditional NoCs. This is the “ideal” performance that SMART provides, with the optimistic assumption of single-cycle source-destination paths for all flits.</p>
@@ -157,6 +158,11 @@
         </div>
       </a>
     
+    
+      <a href="/2020/04/27/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">Hello World - Hexo</div>
+      </a>
     
   </nav>
 
