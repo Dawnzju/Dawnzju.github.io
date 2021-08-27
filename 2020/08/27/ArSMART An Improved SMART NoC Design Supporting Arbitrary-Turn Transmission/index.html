@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+
+<html lang="en,zh-CN,default">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>ArSMART An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission |  陈晖 (Chen Hui)</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/cat-black24.svg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-ArSMART An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  ArSMART An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/08/27/ArSMART%20An%20Improved%20SMART%20NoC%20Design%20Supporting%20Arbitrary-Turn%20Transmission/" class="article-date">
+  <time datetime="2020-08-27T07:33:27.000Z" itemprop="datePublished">2020-08-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Publications/">Publications</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="/images/arsmart.jpg" alt="ArSMART NoC Design (a). Overview of ArSMART; (b). Cluster structure; (c). Router design."></p>
+<h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p>This paper published in TCAD. To refer this:  </p>
+<pre><code>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, &quot;ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,&quot; in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. 
+</code></pre>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>SMART NoC, which transmits unconflicted flits to distant processing elements (PEs) in one cycle through the express bypass, is a high-performance NoC design proposed recently.<br>However, if contention occurs, flits with low priority would not only be buffered but also could not fully utilize bypass. Although there exist several routing algorithms that decrease contentions by rounding busy routers and links, they cannot be directly applicable to SMART since it lacks the support for arbitrary-turn (i.e., the number and direction of turns are free of constraints) routing. Thus, in this article, to minimize contentions and further utilize bypass, we propose an improved SMART NoC, called ArSMART, in which arbitrary-turn transmission is enabled. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router. </p>
+<p>Since the long-range transmission in SMART NoC needs to bypass the intermediate arbitration, to enable this feature, we directly configure the input and output ports connection rather than apply hop-by-hop table-based arbitration. To further explore the higher communication capabilities, effective adaptive routing algorithms that are compatible with ArSMART are proposed. The route computation overhead, one of the main concerns for adaptive routing algorithms, is hidden by our carefully designed control mechanism.<br>Compared with the state-of-the-art SMART NoC, the experimental results demonstrate an average reduction of 40.7% in application schedule length and 29.7% in energy consumption.</p>
+<hr>
+<h2 id="Introduction-Preview"><a href="#Introduction-Preview" class="headerlink" title="Introduction Preview"></a>Introduction Preview</h2><p>With the increasing number of processing elements (PEs) integrated into one chip, the communication between PEs becomes the bottleneck for performance improvement. Based on the modified Amdahl’s law which considers the effect of communication and synchronization in multi-core systems, the communication bottleneck damps the speedup gained by parallelism and computation acceleration. To support high-speed communication among PEs, network-on-chip (NoC), as a widespread communication infrastructure for large-scale many-core systems, has been refined and evolved in recent works. SMART NoC, which transmits unconflicted flits to distant PEs within one cycle through express long-distance bypass paths, is one of the most successful NoC designs. Experiments show that if every flit is magically sent from the source to its destination by using the single-cycle long-distance path, up to 85% application schedule length reduction can be achieved compared with state-of-the-art traditional NoCs. This is the “ideal” performance that SMART provides, with the optimistic assumption of single-cycle source-destination paths for all flits.</p>
+<p>However, in practice, the actual SMART NoC performance is far away from the ideal case since the single-cycle long-distance path can hardly be built for all flits since only the winner of the arbitration among multiple long path setup requests can set up long-range links. If one packet is blocked by other packets, its bypass is broken which degrades the benefits gained by SMART NoC. Besides, the long-range path establishment is costly due to additional pipeline stages and broadcast links. To reduce wire and energy overhead of original SMART NoC, novel designs are proposed.Also, researchers try to reduce contentions from the task mapping and routing perspectives. The first work turns to task mapping which is limited by the availability of PEs and only performs well in homogeneous systems.Peng et al. try to avoid contention through XY-YX routing with intermediate nodes. However, in such design, routes for messages are not fully flexible and constrained by the number of turns.Thus, the contention issue is not fully addressed in aforementioned works.A straightforward way to significantly reduce the contentions is to relax these routing constraints and enable the data transmission of arbitrary-turn paths.</p>
+<p>The challenge for SMART NoC to support arbitrary-turn transmission is placed by its distributed decision-making mechanism. In the start router, the route for a packet is locally computed and then a SMART-hop setup request (SSR), which carries the route information, is broadcast to the downstream routers via dedicated repeated wires to establish bypass. This local decision-making mechanism limits the routing algorithm used in SMART NoC in two aspects. </p>
+<ol>
+<li>With the limited area constraint and deadlock requirement, the current route computation module within the SMART NoC router is rather functionally limited, resulting in that only rule-based routing strategy (e.g., XY), which is deterministic and only allows specific turns, is applied. </li>
+<li>The SSR delivery is constrained by the dedicated wires or using specific SSR network, which does not support SSR transmission with arbitrary-turn.<br>Thus, even revising the original route compute unit and letting it support arbitrary-turn transmission, e.g., using the table-based method, the constrained SSR delivery is not compatible with the arbitrary-turn transmission. To support the single-cycle long-distance transmission with arbitrary-turn, centralized or cluster-based design is needed. Also, inspired by that the optimal solution is easier to be derived based on global information instead of local information, the centralized or cluster-based method could manage NoC resource (i.e., routers and links) better. </li>
+</ol>
+<p>In this article, we propose a novel NoC design based on SMART NoC, called ArSMART, which significantly decreases resource contentions and further fully utilizes bypass via our proposed mechanism of establishing arbitrary-turn paths.The main contributions of our article are as follows:  </p>
+<ul>
+<li>1）We develop an NoC design, ArSMART NoC, to set up single-cycle long-distance paths and support arbitrary-turn data transmission, which significantly reduces resource contentions. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router.    </li>
+<li>2）We present corresponding routing algorithms that enable ArSMART to manage NoC resources efficiently.<br>Specifically, we conduct the route computation to generate a route before they demand at runtime, considering the real-time network state. The challenge to design routing algorithms for ArSMART is the difference of network states used in route computation and actual transmission. Our algorithms manage to minimize such impact and lessen contentions to improve NoC performance.  </li>
+<li>3）We implement the ArSMART design and matched routing algorithms in Gem5, and conduct a full system simulation to show their effectiveness. Compared with the state-of-the-art SMART NoC, the experimental results demonstrate an average reduction of 40.7% in application schedule length and 29.7% in energy consumption.</li>
+</ul>
+<hr>
+<h2 id="Releted-Repo"><a href="#Releted-Repo" class="headerlink" title="Releted Repo"></a>Releted Repo</h2> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ArSMART/" rel="tag">ArSMART</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Article/" rel="tag">Article</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/11/20/PMT/" class="article-nav-link">
+        <strong class="article-nav-caption">Previous</strong>
+        <div class="article-nav-title">
+          
+            Parallel Multipath Transmission for Burst Traffic Optimization in Point-to-Point NoCs
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2021
+        <i class="ri-heart-fill heart_icon"></i> Chen Hui
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/cat-white128.svg" alt="陈晖 (Chen Hui)"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页(Home)</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档(Archives)</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签(Tags)</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我(About)</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
