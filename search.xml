@@ -140,7 +140,7 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
+<h3 id="ctrl-z-solution"><a href="#ctrl-z-solution" class="headerlink" title="ctrl-z solution"></a>ctrl-z solution</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo lsof -i :3000</span><br><span class="line">$ <span class="built_in">kill</span> -9 &#123;PID&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>ReadMe</category>
       </categories>
