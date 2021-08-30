@@ -5,8 +5,9 @@
     <url>/2020/08/27/ArSMART%20An%20Improved%20SMART%20NoC%20Design%20Supporting%20Arbitrary-Turn%20Transmission/</url>
     <content><![CDATA[<p><img src="/images/arsmart.jpg" alt="ArSMART NoC Design (a). Overview of ArSMART; (b). Cluster structure; (c). Router design."></p>
 <h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p>This paper published in TCAD. To refer this:  </p>
-<pre><code>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, &quot;ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,&quot; in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. 
-</code></pre>
+<blockquote>
+<p>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, “ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,” in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. </p>
+</blockquote>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>SMART NoC, which transmits unconflicted flits to distant processing elements (PEs) in one cycle through the express bypass, is a high-performance NoC design proposed recently.<br>However, if contention occurs, flits with low priority would not only be buffered but also could not fully utilize bypass. Although there exist several routing algorithms that decrease contentions by rounding busy routers and links, they cannot be directly applicable to SMART since it lacks the support for arbitrary-turn (i.e., the number and direction of turns are free of constraints) routing. Thus, in this article, to minimize contentions and further utilize bypass, we propose an improved SMART NoC, called ArSMART, in which arbitrary-turn transmission is enabled. Specifically, ArSMART divides the whole NoC into multiple clusters where the route computation is conducted by the cluster controller and the data forwarding is performed by the bufferless reconfigurable router. </p>
 <span id="more"></span>
 <p>Since the long-range transmission in SMART NoC needs to bypass the intermediate arbitration, to enable this feature, we directly configure the input and output ports connection rather than apply hop-by-hop table-based arbitration. To further explore the higher communication capabilities, effective adaptive routing algorithms that are compatible with ArSMART are proposed. The route computation overhead, one of the main concerns for adaptive routing algorithms, is hidden by our carefully designed control mechanism.<br>Compared with the state-of-the-art SMART NoC, the experimental results demonstrate an average reduction of 40.7% in application schedule length and 29.7% in energy consumption.</p>
@@ -91,8 +92,9 @@
     <url>/2020/11/20/PMT/</url>
     <content><![CDATA[<p><img src="/images/MPT.jpg" alt="Illustration of hardware design. (a). Overview ofdata transmission; (b). Router design; (c) Input NI design."></p>
 <h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p>This paper published in TCAD. To refer this:  </p>
-<pre><code>Hui Chen, Zihao Zhang, Peng Chen, Shien Zhu, Weichen Liu. ``Parallel Multipath Transmission for Burst Traffic Optimization in Point-to-Point NoCs.&#39;&#39; In Proceedings of the Great Lakes Symposium on VLSI 2021(GLSVLSI ’21), June 22–25, 2021, Virtual Event, USA.ACM, New York, NY
-</code></pre>
+<blockquote>
+<p>Hui Chen, Zihao Zhang, Peng Chen, Shien Zhu, Weichen Liu. ``Parallel Multipath Transmission for Burst Traffic Optimization in Point-to-Point NoCs.’’ In Proceedings of the Great Lakes Symposium on VLSI 2021(GLSVLSI ’21), June 22–25, 2021, Virtual Event, USA.ACM, New York, NY</p>
+</blockquote>
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Network-on-chip (NoC) is a promising solution to connect more than hundreds of processing elements (PEs). As the number of PEs increases, the high communication latency caused by the burst traffic hampers the speedup gained by computation acceleration. Although parallel multipath transmission is an effective method to reduce transmission latency, its advantages have not been fully exploited in previous works, especially for emerging point-to-point NoCs since: </p>
 <span id="more"></span>
 <ul>
