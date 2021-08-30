@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Hello World - Hexo |  陈晖 (Chen Hui)</title>
+      <title>vimplus |  陈晖 (Chen Hui)</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/cat-black24.svg" />
@@ -54,7 +54,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-hello-world"
+  id="post-vimplus"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -65,7 +65,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World - Hexo
+  vimplus
 </h1>
  
 
@@ -73,8 +73,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/04/27/hello-world/" class="article-date">
-  <time datetime="2020-04-27T09:34:38.000Z" itemprop="datePublished">2020-04-27</time>
+      <a href="/2021/03/20/vimplus/" class="article-date">
+  <time datetime="2021-03-20T03:34:38.000Z" itemprop="datePublished">2021-03-20</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/ReadMe/">ReadMe</a>
@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">87</span>
+            <span class="post-count">305</span>
         </span>
     </span>
 
@@ -109,22 +109,176 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="ctrl-z-solution"><a href="#ctrl-z-solution" class="headerlink" title="ctrl-z solution"></a>ctrl-z solution</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo lsof -i :3000</span><br><span class="line">$ <span class="built_in">kill</span> -9 &#123;PID&#125;</span><br></pre></td></tr></table></figure> 
+  <p>Vimplus An automatic configuration program for vim<br>Source <a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">https://github.com/chxuan/vimplus</a></p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><blockquote>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/Dawnzju/vim_dawnzju">https://github.com/Dawnzju/vim_dawnzju</a> ~/.vimplus<br>cd ~/.vimplus<br>./install.sh //不加sudo  </p>
+</blockquote>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><ul>
+<li>~/.vimrc为vimplus的默认配置，一般不做修改  </li>
+<li>~/.vimrc.custom.plugins为用户自定义插件列表，用户增加、卸载插件请修改该文件  </li>
+<li><del>/.vimrc.custom.config为用户自定义配置文件，一般性配置请放入该文件，可覆盖</del>/.vimrc里的配置  </li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+<th>具体实现</th>
+<th>鼠标操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开/关闭代码资源管理器</td>
+<td><leader>n</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Json格式整理</td>
+<td><leader>j</td>
+<td>:%!python =-m json.tool<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>打开term</td>
+<td><leader>m</td>
+<td>:term<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>nmap</td>
+<td><c-s></td>
+<td>:w<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>vmap</td>
+<td><C-S></td>
+<td><C-C>:update<CR></td>
+<td></td>
+</tr>
+<tr>
+<td>imap</td>
+<td><C-S></td>
+<td><C-O>:update<CR></td>
+<td></td>
+</tr>
+<tr>
+<td>开启鼠标</td>
+<td>mm</td>
+<td>:set mouse=a<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>关闭鼠标</td>
+<td>mmm</td>
+<td>:set mouse-=a<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>光标下移</td>
+<td><c-j></td>
+<td><c-w>j</td>
+<td></td>
+</tr>
+<tr>
+<td>光标右移</td>
+<td><c-k></td>
+<td><c-w>k</td>
+<td></td>
+</tr>
+<tr>
+<td>光标左移</td>
+<td><c-h></td>
+<td><c-w>h</td>
+<td></td>
+</tr>
+<tr>
+<td>光标上移</td>
+<td><c-l></td>
+<td><c-w>l</td>
+<td></td>
+</tr>
+<tr>
+<td>关闭</td>
+<td>Ctrl+W c</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>横向切分窗口并打开文件</td>
+<td></td>
+<td>:sp <filename></td>
+<td></td>
+</tr>
+<tr>
+<td>竖向切分窗口并打开文件</td>
+<td><leader>x</td>
+<td>:vsp <filename></td>
+<td></td>
+</tr>
+<tr>
+<td>上下分屏当前文件</td>
+<td>Ctrl+W s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>左右分屏当前文件</td>
+<td>Ctrl+W v</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>复制当前选中到系统剪切板</td>
+<td><leader><leader>y</td>
+<td>:=+y</td>
+<td>复制 y</td>
+</tr>
+<tr>
+<td>将系统剪切板内容粘贴到vim</td>
+<td><leader><leader>p</td>
+<td>:=+p</td>
+<td>中键</td>
+</tr>
+<tr>
+<td>上一个</td>
+<td>n</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>下一个</td>
+<td>N</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>另存为</td>
+<td>:w 文件名</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabe</td>
+<td>在新标签页中编辑</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabc</td>
+<td>关闭当前标签页</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl s之后</td>
+<td>ctrl q</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+ 
       <!-- reward -->
       
     </div>
@@ -142,15 +296,20 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/08/27/ArSMART%20An%20Improved%20SMART%20NoC%20Design%20Supporting%20Arbitrary-Turn%20Transmission/" class="article-nav-link">
+      <a href="/2021/04/27/MACRO/" class="article-nav-link">
         <strong class="article-nav-caption">Previous</strong>
         <div class="article-nav-title">
           
-            ArSMART An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission
+            MARCO A High-performance Task Mapping and Routing Co-optimization Framework for NoC-based Heterogeneous Computing Systems
           
         </div>
       </a>
     
+    
+      <a href="/2021/01/30/aboutme/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">aboutme</div>
+      </a>
     
   </nav>
 

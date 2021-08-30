@@ -150,4 +150,244 @@
         <tag>ReadMe</tag>
       </tags>
   </entry>
+  <entry>
+    <title>vimplus</title>
+    <url>/2021/03/20/vimplus/</url>
+    <content><![CDATA[<p>Vimplus An automatic configuration program for vim<br>Source <a href="https://github.com/chxuan/vimplus">https://github.com/chxuan/vimplus</a></p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><blockquote>
+<p>git clone <a href="https://github.com/Dawnzju/vim_dawnzju">https://github.com/Dawnzju/vim_dawnzju</a> ~/.vimplus<br>cd ~/.vimplus<br>./install.sh //不加sudo  </p>
+</blockquote>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><ul>
+<li>~/.vimrc为vimplus的默认配置，一般不做修改  </li>
+<li>~/.vimrc.custom.plugins为用户自定义插件列表，用户增加、卸载插件请修改该文件  </li>
+<li><del>/.vimrc.custom.config为用户自定义配置文件，一般性配置请放入该文件，可覆盖</del>/.vimrc里的配置  </li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>快捷键</th>
+<th>具体实现</th>
+<th>鼠标操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开/关闭代码资源管理器</td>
+<td><leader>n</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Json格式整理</td>
+<td><leader>j</td>
+<td>:%!python =-m json.tool<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>打开term</td>
+<td><leader>m</td>
+<td>:term<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>nmap</td>
+<td><c-s></td>
+<td>:w<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>vmap</td>
+<td><C-S></td>
+<td><C-C>:update<CR></td>
+<td></td>
+</tr>
+<tr>
+<td>imap</td>
+<td><C-S></td>
+<td><C-O>:update<CR></td>
+<td></td>
+</tr>
+<tr>
+<td>开启鼠标</td>
+<td>mm</td>
+<td>:set mouse=a<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>关闭鼠标</td>
+<td>mmm</td>
+<td>:set mouse-=a<cr></td>
+<td></td>
+</tr>
+<tr>
+<td>光标下移</td>
+<td><c-j></td>
+<td><c-w>j</td>
+<td></td>
+</tr>
+<tr>
+<td>光标右移</td>
+<td><c-k></td>
+<td><c-w>k</td>
+<td></td>
+</tr>
+<tr>
+<td>光标左移</td>
+<td><c-h></td>
+<td><c-w>h</td>
+<td></td>
+</tr>
+<tr>
+<td>光标上移</td>
+<td><c-l></td>
+<td><c-w>l</td>
+<td></td>
+</tr>
+<tr>
+<td>关闭</td>
+<td>Ctrl+W c</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>横向切分窗口并打开文件</td>
+<td></td>
+<td>:sp <filename></td>
+<td></td>
+</tr>
+<tr>
+<td>竖向切分窗口并打开文件</td>
+<td><leader>x</td>
+<td>:vsp <filename></td>
+<td></td>
+</tr>
+<tr>
+<td>上下分屏当前文件</td>
+<td>Ctrl+W s</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>左右分屏当前文件</td>
+<td>Ctrl+W v</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>复制当前选中到系统剪切板</td>
+<td><leader><leader>y</td>
+<td>:=+y</td>
+<td>复制 y</td>
+</tr>
+<tr>
+<td>将系统剪切板内容粘贴到vim</td>
+<td><leader><leader>p</td>
+<td>:=+p</td>
+<td>中键</td>
+</tr>
+<tr>
+<td>上一个</td>
+<td>n</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>下一个</td>
+<td>N</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>另存为</td>
+<td>:w 文件名</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabe</td>
+<td>在新标签页中编辑</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabc</td>
+<td>关闭当前标签页</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl s之后</td>
+<td>ctrl q</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>ReadMe</category>
+      </categories>
+      <tags>
+        <tag>ReadMe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>aboutme</title>
+    <url>/2021/01/30/aboutme/</url>
+    <content><![CDATA[<h1 id="Chen-Hui"><a href="#Chen-Hui" class="headerlink" title="Chen Hui"></a>Chen Hui</h1><hr>
+<p>Email: <a href="mailto:&#104;&#x75;&#x69;&#x2e;&#99;&#x68;&#101;&#x6e;&#64;&#x6e;&#116;&#x75;&#46;&#x65;&#100;&#x75;&#46;&#x73;&#103;">&#104;&#x75;&#x69;&#x2e;&#99;&#x68;&#101;&#x6e;&#64;&#x6e;&#116;&#x75;&#46;&#x65;&#100;&#x75;&#46;&#x73;&#103;</a>　　　</p>
+<p>blog：<a href="https://dawnzju.github.io/">https://dawnzju.github.io/</a>　　　　　　　　　　　　　　 GitHub：<a href="https://github.com/Dawnzju/">https://github.com/Dawnzju/</a> </p>
+<hr>
+<h2 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h2><p><strong>2019/01 - Now</strong>　　　　　　　        　　<strong>Nanyang Technological University</strong>　　　<strong>PhD Candidate</strong><br>School of Computer Science and Engineering  </p>
+<p><strong>2017/01 - 2018/07</strong>　　　　　　　　　<strong>National University of Singapore</strong>　　　<strong>Master</strong><br>School of Computing</p>
+<p><strong>2012/09 - 2016/06</strong>　　　　　　　　　<strong>Zhejiang University</strong>　　　　　　　　　<strong>Undergraduate</strong><br>School of Computer Science and Technology  </p>
+<hr>
+<h2 id="Publication"><a href="#Publication" class="headerlink" title="Publication"></a>Publication</h2><h3 id="Journal"><a href="#Journal" class="headerlink" title="Journal"></a>Journal</h3><ul>
+<li><p>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, “ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,” in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. </p>
+</li>
+<li><p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li and Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in ACM Transactions on Embedded Computing Systems, doi: 10.1145/3476985</p>
+</li>
+<li><p>Peng Chen, Weichen Liu, Hui Chen, Shiqing Li, Mengquan Li, Lei Yang, and Nan Guan. ``Reduced Worst-Case Communication Latency Using Single-Cycle Multi-Hop Traversal Network-on-Chip.’’ IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2020.</p>
+</li>
+<li><p>Xiangzhong Luo, Di Liu, Shuo Huai, Hao Kong, Hui Chen and Weichen Liu, “Designing Efficient DNNs via Hardware-Aware Neural Architecture Search and Beyond.” IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (2021).</p>
+</li>
+<li><p>Hao Kong, Shuo Huai, Di Liu, Lie Zhang, Hui Chen, Shien Zhu, Shiqing Li, Weichen Liu, Manu Rastogi, Ravi Subramaniam, Madhu Athreya, “EDLAB: A Benchmark for Edge Deep Learning Accelerators.” IEEE Design &amp; Test. 2021 Jul 6.</p>
+</li>
+</ul>
+<h3 id="Conference"><a href="#Conference" class="headerlink" title="Conference"></a>Conference</h3><ul>
+<li><p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li and Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in Proceedings of International Conference on Compilers, Architecture, and Synthesis of Embedded Systems (ESWEEK-CASES ‘21), October 08-15, 2021, Virtual Event.</p>
+</li>
+<li><p>Hui Chen, Zihao Zhang, Peng Chen, Shien Zhu, Weichen Liu. ``Parallel Multipath Transmission for Burst Traffic Optimization in Point-to-Point NoCs.’’ In Proceedings of the Great Lakes Symposium on VLSI 2021(GLSVLSI ’21), June 22–25, 2021, Virtual Event, USA.ACM, New York, NY</p>
+</li>
+<li><p>Peng Chen, Hui Chen, Jun Zhou, Di Liu, Shiqing Li, Weichen Liu, Wanli Chang and Nan Guan, ``Partial Order Based Non-Preemptive Communication Scheduling Towards Real-Time Networks-on-Chip.’’ ACM Symposium on Applied Computing (SAC). 2021: 145-154.</p>
+</li>
+</ul>
+<hr>
+<h2 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h2><ul>
+<li><p><strong>ArSMART</strong>　　　　　　　　　　　</p>
+<p>Introduction：</p>
+<p>Url：<a href="https://github.com/Dawnzju/1-ArSMARTNoC">https://github.com/Dawnzju/1-ArSMARTNoC</a></p>
+<ul>
+<li>TBD</li>
+<li>TBD</li>
+<li>TBD</li>
+</ul>
+</li>
+<li><p><strong>MARCO</strong>　　　　　　　　　　　</p>
+<p>Introduction：</p>
+<p>Url：<a href="https://github.com/Dawnzju/2-MARCO">https://github.com/Dawnzju/2-MARCO</a></p>
+<ul>
+<li>TBD</li>
+<li>TBD</li>
+<li>TBD</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>AboutMe</category>
+      </categories>
+      <tags>
+        <tag>AboutMe</tag>
+      </tags>
+  </entry>
 </search>
