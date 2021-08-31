@@ -119,6 +119,78 @@
     
     
     <article
+  id="post-arsmartReadme"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/08/31/arsmartReadme/"
+    >ArSMART Manual</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/31/arsmartReadme/" class="article-date">
+  <time datetime="2021-08-31T06:59:23.000Z" itemprop="datePublished">2021-08-31</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Manual/">Manual</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Source Code link: To be public soon  </p>
+<p>This is a simulator which enables basic NoC, SMART NoC and ArSMART NoC. This simulator is developed based on gem5. The main website can be found at <a target="_blank" rel="noopener" href="http://www.gem5.org/">http://www.gem5.org</a>.  </p>
+<hr>
+<h2 id="To-install-this-simulator"><a href="#To-install-this-simulator" class="headerlink" title="To install this simulator:"></a>To install this simulator:</h2><blockquote>
+<ol>
+<li>Download gem5: <a target="_blank" rel="noopener" href="https://github.com/Dawnzju/gem5">https://github.com/Dawnzju/gem5</a> (This is the version I am working on. Recommanded since the patch can be easily applied)  </li>
+<li>Check the python version: Python 2.7.17 :: Anaconda, Inc. (conda activate py27)  </li>
+<li>Make sure the original gem5 can be compiled and executed.  </li>
+<li>Download and install JSONcpp: <a target="_blank" rel="noopener" href="https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header">https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header</a>  </li>
+<li>Download NoC.patch file in this repo to gem5 folder.  </li>
+<li>Apply this patch using command: git apply NoC.patch  </li>
+<li>Compile again: scons build/Garnet_standalone/gem5.debug -j25 NUMBER_BITS_PER_SET=256  </li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="To-use-this-simulator"><a href="#To-use-this-simulator" class="headerlink" title="To use this simulator:"></a>To use this simulator:</h2><h3 id="1-original-traffic-pattern-for-NoC-are-supported"><a href="#1-original-traffic-pattern-for-NoC-are-supported" class="headerlink" title="1. original traffic pattern for NoC are supported:"></a>1. original traffic pattern for NoC are supported:</h3><p><a target="_blank" rel="noopener" href="https://www.gem5.org/documentation/general_docs/ruby/garnet_synthetic_traffic/">https://www.gem5.org/documentation/general_docs/ruby/garnet_synthetic_traffic/</a>  </p>
+<h3 id="2-Prepare-the-task-graph-file-with-mapping-and-routing-information"><a href="#2-Prepare-the-task-graph-file-with-mapping-and-routing-information" class="headerlink" title="2. Prepare the task graph file with mapping and routing information"></a>2. Prepare the task graph file with mapping and routing information</h3><p>The task graph is saved in a json file: one task with out links is saved as:<br>“9”: {“total_needReceive”: 93, “input_links”: [], “start_time”: 0, “out_links”: [[[2, 93, [], [[9, “S”], [17, “S”], [25, “S”], [33, “E”], [34, “E”], [35, “E”]], 1, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “E”], [12, “S”], [20, “S”], [28, “S”]], 2, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “S”], [35, “E”]], 3, 9, 36], [2, 93, [], [[9, “E”], [10, “S”], [18, “S”], [26, “E”], [27, “E”], [28, “S”]], 6, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “E”], [28, “S”]], 6, 9, 36]]], “end_time”: 0, “visited”: 0, “total_needSend”: 93, “exe_time”: 102, “mapto”: 9}<br>taskid(str):{“total_needReceive”:int(total message need to be received), “input_links”: list(opt,reserved for future use), “start_time”: int(opt,reserved for future use), “out put links”: [[link1[candidata path1: destinationTaskId,messagesize,priority(opt,reserved for future use),path,candidateCount,sourceRouter,destinationRouter],[candidata path2],[candidata path3]],[link2],[link3]],”endTime”:int(opt,reserved for future use),”visited”:0 or 1(opt,reserved for future use),”totalneedSend”: int(total Message need to send),”exe_time”:int(total task should be executed),”mapto”:int(The PE has been mapped to)}  </p>
+<h3 id="3-For-SMART-NoC"><a href="#3-For-SMART-NoC" class="headerlink" title="3. For SMART NoC:"></a>3. For SMART NoC:</h3><p>New Parameters    Configure File    Description<br>        –smart2D    GarnetNetwork.py    Enable SMART-2D<br>            Network.py    (experimenting)<br>        –single-flit    GarnetNetwork.py    Enable Single-flit transmitting<br>            Network.py    (As multi-flits transmitting is not working yet)<br>        –routing algorithm    GarnetNetwork.py    Set the value to 2 to enable the custom routing algorithm that follows timePoints.json    Use with –central<br>            Network.py<br>        example: ./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –smart –smart_hpcmax=4 –filename=./autocor_Mesh8x8_AIR1_XY.json  </p>
+<h3 id="4-For-ArSMART-NoC"><a href="#4-For-ArSMART-NoC" class="headerlink" title="4. For ArSMART NoC:"></a>4. For ArSMART NoC:</h3><p>please read this paper:  <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9464312">https://ieeexplore.ieee.org/abstract/document/9464312</a><br>–central    GarnetNetwork.py    Enable the bypass at routers for the ArSMART    Use with –routing-algorithm=2  Network.py  –debug-flags=GarnetSyntheticTraffic   Print debug information   </p>
+<p>example: ./build/Garnet_standalone/gem5.debug –debug-flags=GarnetSyntheticTraffic configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –smart_hpcmax=8 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –central –filename=./autocor_Mesh8x8_AIR1_XY.json </p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ArSMART/" rel="tag">ArSMART</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Manual/" rel="tag">Manual</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReadMe/" rel="tag">ReadMe</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-MACRO"
   class="article article-type-post"
   itemscope
