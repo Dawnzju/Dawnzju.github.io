@@ -530,4 +530,23 @@
         <tag>Manual</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VScode Configuration and Insturctions</title>
+    <url>/2021/08/20/VScode/</url>
+    <content><![CDATA[<p>VScode 使用记录<br><a href="https://code.visualstudio.com/docs/languages/json">https://code.visualstudio.com/docs/languages/json</a></p>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>You can also right-click on the editor Tab and select Open Preview (Ctrl+Shift+V) or use the Command Palette (Ctrl+Shift+P) to run the Markdown: Open Preview to the Side command (Ctrl+K V)</p>
+<h2 id="Json-html"><a href="#Json-html" class="headerlink" title="Json/html"></a>Json/html</h2><p>Shift+Alt+F formatting</p>
+<h2 id="Setting-sync"><a href="#Setting-sync" class="headerlink" title="Setting sync"></a>Setting sync</h2><p>步骤一：安装Settings Sync扩展<br>启动VSCode，搜索并安装Settings Sync扩展：</p>
+<p>上传配置<br>按下 Shift + Alt + U</p>
+<p>下载配置<br>按下 Shift + Alt + D</p>
+<p>提示：如果上传配置成功，将会有消息显示在输出选项卡中。</p>
+<p>按照如上步骤在新环境中配置Settings Sync扩展，然后按下Shift + Alt + D下载配置。</p>
+]]></content>
+      <categories>
+        <category>ReadMe</category>
+      </categories>
+      <tags>
+        <tag>ReadMe</tag>
+      </tags>
+  </entry>
 </search>
