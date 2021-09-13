@@ -534,15 +534,25 @@
     <title>VScode Configuration and Insturctions</title>
     <url>/2021/08/20/VScode/</url>
     <content><![CDATA[<p>VScode 使用记录<br><a href="https://code.visualstudio.com/docs/languages/json">https://code.visualstudio.com/docs/languages/json</a></p>
-<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>You can also right-click on the editor Tab and select Open Preview (Ctrl+Shift+V) or use the Command Palette (Ctrl+Shift+P) to run the Markdown: Open Preview to the Side command (Ctrl+K V)</p>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>应用: Remote SSH<br>host 不需要加端口  </p>
+<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>You can also right-click on the editor Tab and select Open Preview (Ctrl+Shift+V) or use the Command Palette (Ctrl+Shift+P) to run the Markdown: Open Preview to the Side command (Ctrl+K V)</p>
 <h2 id="Json-html"><a href="#Json-html" class="headerlink" title="Json/html"></a>Json/html</h2><p>Shift+Alt+F formatting</p>
 <h2 id="Setting-sync"><a href="#Setting-sync" class="headerlink" title="Setting sync"></a>Setting sync</h2><p>步骤一：安装Settings Sync扩展<br>启动VSCode，搜索并安装Settings Sync扩展：</p>
 <p>上传配置<br>按下 Shift + Alt + U</p>
 <p>下载配置<br>按下 Shift + Alt + D</p>
 <p>提示：如果上传配置成功，将会有消息显示在输出选项卡中。</p>
 <p>按照如上步骤在新环境中配置Settings Sync扩展，然后按下Shift + Alt + D下载配置。</p>
-<h2 id="MikTex-latex"><a href="#MikTex-latex" class="headerlink" title="MikTex latex"></a>MikTex latex</h2><p>修改 “更新-&gt; 检索源” 为随机宏</p>
-<h2 id="Sumatra-PDF"><a href="#Sumatra-PDF" class="headerlink" title="Sumatra PDF"></a>Sumatra PDF</h2><p>修改vscode setting.json file </p>
+<h2 id="MikTex-latex"><a href="#MikTex-latex" class="headerlink" title="MikTex latex"></a>MikTex latex</h2><p>修改 “更新-&gt; 检索源” 为随机宏  </p>
+<h2 id="Sumatra-PDF"><a href="#Sumatra-PDF" class="headerlink" title="Sumatra PDF"></a>Sumatra PDF</h2><p>修改vscode setting.json file SumatraPDF 路径  </p>
+<h3 id="正反向搜索"><a href="#正反向搜索" class="headerlink" title="正反向搜索"></a>正反向搜索</h3><ol>
+<li>配置反向搜索（PDF-&gt;Latex源文件） </li>
+<li>反向搜索在SumatraPDF中设置。打开SumatraPDF，进入设置-&gt;选项 对话框，在“设置反向搜索命令行”处填入如下内容(是一行内容，不是2行！)：  </li>
+<li>“C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\Code.exe” “C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\resources\app\out\cli.js” -r -g “%f:%l”    </li>
+<li>双击PDF中的任意一处即可跳转到VSCode中所对应的内容的源代码处  </li>
+<li>反向搜索：打开一个已经编译的TeX文件，ctrl+alt+v打开PDF文件，在正文中双击鼠标左键，会切换到了源文件的相应位置。  </li>
+<li>正向搜索：ctrl+alt+x，找到”navigator,select and edit”，点击第一项”syncTeX from cursor”(快捷键ctrl+alt+j)，会切换到PDF文件的相应位置。  </li>
+</ol>
+<p>如果不成功，检查路径设置，或者文件名错误。 </p>
 ]]></content>
       <categories>
         <category>ReadMe</category>
