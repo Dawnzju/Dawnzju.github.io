@@ -335,7 +335,7 @@
     <title>About Me</title>
     <url>/2021/01/30/aboutme/</url>
     <content><![CDATA[<h1 id="Chen-Hui"><a href="#Chen-Hui" class="headerlink" title="Chen Hui"></a>Chen Hui</h1><hr>
-<p>Email: <a href="mailto:&#x68;&#117;&#x69;&#x2e;&#99;&#104;&#101;&#110;&#x40;&#110;&#x74;&#x75;&#46;&#101;&#100;&#x75;&#x2e;&#115;&#103;">&#x68;&#117;&#x69;&#x2e;&#99;&#104;&#101;&#110;&#x40;&#110;&#x74;&#x75;&#46;&#101;&#100;&#x75;&#x2e;&#115;&#103;</a>　　　</p>
+<p>Email: <a href="mailto:&#104;&#x75;&#105;&#x2e;&#99;&#104;&#101;&#110;&#x40;&#x6e;&#x74;&#117;&#46;&#101;&#x64;&#117;&#x2e;&#115;&#103;">&#104;&#x75;&#105;&#x2e;&#99;&#104;&#101;&#110;&#x40;&#x6e;&#x74;&#117;&#46;&#101;&#x64;&#117;&#x2e;&#115;&#103;</a>　　　</p>
 <p>blog：<a href="https://dawnzju.github.io/">https://dawnzju.github.io/</a>　　　　　　　　　　　　　　 GitHub：<a href="https://github.com/Dawnzju/">https://github.com/Dawnzju/</a> </p>
 <hr>
 <h2 id="Education"><a href="#Education" class="headerlink" title="Education"></a>Education</h2><p><strong>2019/01 - Now</strong>　　　　　　　        　　<strong>Nanyang Technological University</strong>　　　<strong>PhD Candidate</strong><br>School of Computer Science and Engineering  </p>
@@ -343,15 +343,21 @@
 <p><strong>2012/09 - 2016/06</strong>　　　　　　　　　<strong>Zhejiang University</strong>　　　　　　　　　<strong>Undergraduate</strong><br>School of Computer Science and Technology  </p>
 <hr>
 <h2 id="Publication"><a href="#Publication" class="headerlink" title="Publication"></a>Publication</h2><h3 id="Journal"><a href="#Journal" class="headerlink" title="Journal"></a>Journal</h3><ul>
-<li><p>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, “ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,” in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, doi: 10.1109/TCAD.2021.3091961. </p>
+<li><p>Hui Chen, Peng Chen, Jun Zhou, L. H. K. Duong and Weichen Liu, “ArSMART: An Improved SMART NoC Design Supporting Arbitrary-Turn Transmission,” in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2021. </p>
 </li>
-<li><p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li and Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in ACM Transactions on Embedded Computing Systems, doi: 10.1145/3476985</p>
+<li><p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li and Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in ACM Transactions on Embedded Computing Systems (TECS). 2021.</p>
 </li>
-<li><p>Peng Chen, Weichen Liu, Hui Chen, Shiqing Li, Mengquan Li, Lei Yang, and Nan Guan. ``Reduced Worst-Case Communication Latency Using Single-Cycle Multi-Hop Traversal Network-on-Chip.’’ IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2020.</p>
+<li><p>Peng Chen, Weichen Liu, Hui Chen, Shiqing Li, Mengquan Li, Lei Yang, and Nan Guan. “Reduced Worst-Case Communication Latency Using Single-Cycle Multi-Hop Traversal Network-on-Chip.” IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2020.</p>
 </li>
-<li><p>Xiangzhong Luo, Di Liu, Shuo Huai, Hao Kong, Hui Chen and Weichen Liu, “Designing Efficient DNNs via Hardware-Aware Neural Architecture Search and Beyond.” IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (2021).</p>
+<li><p>Peng Chen, Hui Chen, Jun Zhou, Mengquan Li, Weichen Liu, Chunhua Xiao, Yaoyao Ye, Nan Guan, “Contention Minimization in Emerging SMART NoC via Direct and Indirect Routes.” in IEEE Transactions on Computers (TC). 2021.</p>
 </li>
-<li><p>Hao Kong, Shuo Huai, Di Liu, Lie Zhang, Hui Chen, Shien Zhu, Shiqing Li, Weichen Liu, Manu Rastogi, Ravi Subramaniam, Madhu Athreya, “EDLAB: A Benchmark for Edge Deep Learning Accelerators.” IEEE Design &amp; Test. 2021 Jul 6.</p>
+</ul>
+<ul>
+<li><p>Xiangzhong Luo, Di Liu, Shuo Huai, Hao Kong, Hui Chen and Weichen Liu, “Designing Efficient DNNs via Hardware-Aware Neural Architecture Search and Beyond.” IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2021.</p>
+</li>
+<li><p>Hao Kong, Shuo Huai, Di Liu, Lie Zhang, Hui Chen, Shien Zhu, Shiqing Li, Weichen Liu, Manu Rastogi, Ravi Subramaniam, Madhu Athreya, “EDLAB: A Benchmark for Edge Deep Learning Accelerators.” IEEE Design &amp; Test. 2021.</p>
+</li>
+<li><p>Weigang Hou, Pengxing Guo, Lei Guo, Xu Zhang, Hui Chen, Weichen Liu. “O-Star: An Optical Switching Architecture Featuring Mode and Wavelength-Division Multiplexing for On-chip Many-Core Systems.” Journal of Lightwave Technology (JLT). 2021.</p>
 </li>
 </ul>
 <h3 id="Conference"><a href="#Conference" class="headerlink" title="Conference"></a>Conference</h3><ul>
@@ -553,6 +559,69 @@
 <li>正向搜索：ctrl+alt+x，找到”navigator,select and edit”，点击第一项”syncTeX from cursor”(快捷键ctrl+alt+j)，会切换到PDF文件的相应位置。  </li>
 </ol>
 <p>如果不成功，检查路径设置，或者文件名错误。 </p>
+<p>重要setting</p>
+<p>switch(layer_type) {<br>          case (LayerType::DSCONV): {<br>            if(batch_processing) {<br>              input_coupled_vars =  {“N”, “C”, “Y”, “X”};<br>              weight_coupled_vars = {“C”, “R”, “S”};<br>              output_coupled_vars = {“N”, “C”, “Y”, “X”};<br>            }<br>            else {<br>              input_coupled_vars =  {“C”, “Y”, “X”};<br>              weight_coupled_vars = {“C”, “R”, “S”};<br>              output_coupled_vars = {“C”, “Y”, “X”};<br>            }</p>
+<pre><code>        break;
+      &#125;
+      case (LayerType::NGCONV): &#123;
+        if(batch_processing) &#123;
+          input_coupled_vars =  &#123;&quot;N&quot;, &quot;G&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+          weight_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
+          output_coupled_vars = &#123;&quot;N&quot;, &quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+        &#125;
+        else &#123;
+          input_coupled_vars =  &#123;&quot;G&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+          weight_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
+          output_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+        &#125;
+        break;
+      &#125;
+      case (LayerType::GEMM): &#123;
+        input_coupled_vars =  &#123;&quot;M&quot;, &quot;K&quot;&#125;;
+        weight_coupled_vars = &#123;&quot;K&quot;, &quot;N&quot;&#125;;
+        output_coupled_vars = &#123;&quot;M&quot;, &quot;N&quot;&#125;;
+        break;
+      &#125;
+      case (LayerType::CONV):
+      default : &#123;
+        if(batch_processing) &#123;
+          input_coupled_vars =  &#123;&quot;N&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+          weight_coupled_vars = &#123;&quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
+          output_coupled_vars = &#123;&quot;N&quot;, &quot;K&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+        &#125;
+        else &#123;
+          input_coupled_vars =  &#123;&quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+          weight_coupled_vars = &#123;&quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
+          output_coupled_vars = &#123;&quot;K&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
+        &#125;
+</code></pre>
+<p>(*num_mapped_elements_)[loop_var] = map_size;</p>
+<p>/* This is a critical function that actually estimates reuse based on various cases, which are intertwined in a complicated manner */</p>
+<pre><code>      //This must come after full unroll check because it contains all of the followings:
+      // 1) full init
+      // 2) full unroll
+      // 3) init + unroll mixed
+      // Except for 2, we need full load, which is manged below
+</code></pre>
+<p>实验：breakdown<br>纵向<br>Different Network<br>Different Mapping strategy<br>Power and Area<br>Cluster splitting</p>
+<p>横向 - Rethinking<br>Multicast enabled - Different </p>
+<p>Different Level</p>
+<pre><code>          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Input);
+          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Output);
+          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Weight);
+</code></pre>
+<p>加高级定义<br>复制函数</p>
+<p>已确定位置</p>
+<p>修改数字<br>修改范围</p>
+<p>################<br>实验画图：<br>256</p>
+<p>Time<br>Breakdown<br>Energy</p>
+<p>-未完成-bandwidth Change</p>
+<p>System level<br>Configuration</p>
+<ol>
+<li>Multicast router and algorithm</li>
+<li>Unicast-对于unicast，传输顺序和路径的影响很大，我们提出了一种并行传输的方式来增加实际的传输带宽，</li>
+<li>充分利用空间的局部性</li>
+</ol>
 ]]></content>
       <categories>
         <category>ReadMe</category>
