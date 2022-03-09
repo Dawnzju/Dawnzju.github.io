@@ -350,69 +350,6 @@
 <li>正向搜索：ctrl+alt+x，找到”navigator,select and edit”，点击第一项”syncTeX from cursor”(快捷键ctrl+alt+j)，会切换到PDF文件的相应位置。  </li>
 </ol>
 <p>如果不成功，检查路径设置，或者文件名错误。 </p>
-<p>重要setting</p>
-<p>switch(layer_type) {<br>          case (LayerType::DSCONV): {<br>            if(batch_processing) {<br>              input_coupled_vars =  {“N”, “C”, “Y”, “X”};<br>              weight_coupled_vars = {“C”, “R”, “S”};<br>              output_coupled_vars = {“N”, “C”, “Y”, “X”};<br>            }<br>            else {<br>              input_coupled_vars =  {“C”, “Y”, “X”};<br>              weight_coupled_vars = {“C”, “R”, “S”};<br>              output_coupled_vars = {“C”, “Y”, “X”};<br>            }</p>
-<pre><code>        break;
-      &#125;
-      case (LayerType::NGCONV): &#123;
-        if(batch_processing) &#123;
-          input_coupled_vars =  &#123;&quot;N&quot;, &quot;G&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-          weight_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
-          output_coupled_vars = &#123;&quot;N&quot;, &quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-        &#125;
-        else &#123;
-          input_coupled_vars =  &#123;&quot;G&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-          weight_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
-          output_coupled_vars = &#123;&quot;G&quot;, &quot;K&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-        &#125;
-        break;
-      &#125;
-      case (LayerType::GEMM): &#123;
-        input_coupled_vars =  &#123;&quot;M&quot;, &quot;K&quot;&#125;;
-        weight_coupled_vars = &#123;&quot;K&quot;, &quot;N&quot;&#125;;
-        output_coupled_vars = &#123;&quot;M&quot;, &quot;N&quot;&#125;;
-        break;
-      &#125;
-      case (LayerType::CONV):
-      default : &#123;
-        if(batch_processing) &#123;
-          input_coupled_vars =  &#123;&quot;N&quot;, &quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-          weight_coupled_vars = &#123;&quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
-          output_coupled_vars = &#123;&quot;N&quot;, &quot;K&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-        &#125;
-        else &#123;
-          input_coupled_vars =  &#123;&quot;C&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-          weight_coupled_vars = &#123;&quot;K&quot;, &quot;C&quot;, &quot;R&quot;, &quot;S&quot;&#125;;
-          output_coupled_vars = &#123;&quot;K&quot;, &quot;Y&quot;, &quot;X&quot;&#125;;
-        &#125;
-</code></pre>
-<p>(*num_mapped_elements_)[loop_var] = map_size;</p>
-<p>/* This is a critical function that actually estimates reuse based on various cases, which are intertwined in a complicated manner */</p>
-<pre><code>      //This must come after full unroll check because it contains all of the followings:
-      // 1) full init
-      // 2) full unroll
-      // 3) init + unroll mixed
-      // Except for 2, we need full load, which is manged below
-</code></pre>
-<p>实验：breakdown<br>纵向<br>Different Network<br>Different Mapping strategy<br>Power and Area<br>Cluster splitting</p>
-<p>横向 - Rethinking<br>Multicast enabled - Different </p>
-<p>Different Level</p>
-<pre><code>          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Input);
-          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Output);
-          l1_size += cluster_res-&gt;GetBufferSizeReq(maestro::CA::BufferType::Downstream, maestro::DataClass::Weight);
-</code></pre>
-<p>加高级定义<br>复制函数</p>
-<p>已确定位置</p>
-<p>修改数字<br>修改范围</p>
-<p>################<br>实验画图：<br>256</p>
-<p>Time<br>Breakdown<br>Energy</p>
-<p>-未完成-bandwidth Change</p>
-<p>System level<br>Configuration</p>
-<ol>
-<li>Multicast router and algorithm</li>
-<li>Unicast-对于unicast，传输顺序和路径的影响很大，我们提出了一种并行传输的方式来增加实际的传输带宽，</li>
-<li>充分利用空间的局部性</li>
-</ol>
  
       <!-- reward -->
       
