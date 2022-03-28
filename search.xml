@@ -443,56 +443,121 @@
     <url>/2021/08/31/arsmartReadme/</url>
     <content><![CDATA[<p><img src="/images/arsmartReadme.jpg" alt="Illustration of ArSMART NoC context."></p>
 <p>Source Code link: <a href="https://github.com/Dawnzju/1-Gem5-Updated">link</a> </p>
+<blockquote>
 <p>This is a simulator which enables basic NoC, SMART NoC and ArSMART NoC. This simulator is developed based on gem5. The main website can be found at <a href="http://www.gem5.org/">http://www.gem5.org</a>.  </p>
-<span id="more"></span>
-<hr>
-<h2 id="To-install-this-simulator"><a href="#To-install-this-simulator" class="headerlink" title="To install this simulator:"></a>To install this simulator:</h2><blockquote>
-<ol>
-<li>Download gem5: <a href="https://github.com/Dawnzju/gem5">https://github.com/Dawnzju/gem5</a> (This is the version I am working on. Recommanded since the patch can be easily applied)  </li>
-<li>Check the python version: Python 2.7.17 :: Anaconda, Inc. (conda activate py27)  </li>
-<li>Make sure the original gem5 can be compiled and executed.  </li>
-<li>Download and install JSONcpp: <a href="https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header">https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header</a>  </li>
-<li>Download NoC.patch file in this repo to gem5 folder.  </li>
-<li>Apply this patch using command: git apply NoC.patch  </li>
-<li>Compile again: scons build/Garnet_standalone/gem5.debug -j25 NUMBER_BITS_PER_SET=256  </li>
-</ol>
 </blockquote>
 <hr>
-<h2 id="To-use-this-simulator"><a href="#To-use-this-simulator" class="headerlink" title="To use this simulator:"></a>To use this simulator:</h2><h3 id="1-original-traffic-pattern-for-NoC-are-supported"><a href="#1-original-traffic-pattern-for-NoC-are-supported" class="headerlink" title="1. original traffic pattern for NoC are supported:"></a>1. original traffic pattern for NoC are supported:</h3><p><a href="https://www.gem5.org/documentation/general_docs/ruby/garnet_synthetic_traffic/">https://www.gem5.org/documentation/general_docs/ruby/garnet_synthetic_traffic/</a>  </p>
-<h3 id="2-Prepare-the-task-graph-file-with-mapping-and-routing-information"><a href="#2-Prepare-the-task-graph-file-with-mapping-and-routing-information" class="headerlink" title="2. Prepare the task graph file with mapping and routing information"></a>2. Prepare the task graph file with mapping and routing information</h3><p>The task graph is saved in a json file: one task with out links is saved as:<br>“9”: {“total_needReceive”: 93, “input_links”: [], “start_time”: 0, “out_links”: [[[2, 93, [], [[9, “S”], [17, “S”], [25, “S”], [33, “E”], [34, “E”], [35, “E”]], 1, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “E”], [12, “S”], [20, “S”], [28, “S”]], 2, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “S”], [35, “E”]], 3, 9, 36], [2, 93, [], [[9, “E”], [10, “S”], [18, “S”], [26, “E”], [27, “E”], [28, “S”]], 6, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “E”], [28, “S”]], 6, 9, 36]]], “end_time”: 0, “visited”: 0, “total_needSend”: 93, “exe_time”: 102, “mapto”: 9}<br>taskid(str):{“total_needReceive”:int(total message need to be received), “input_links”: list(opt,reserved for future use), “start_time”: int(opt,reserved for future use), “out put links”: [[link1[candidata path1: destinationTaskId,messagesize,priority(opt,reserved for future use),path,candidateCount,sourceRouter,destinationRouter],[candidata path2],[candidata path3]],[link2],[link3]],”endTime”:int(opt,reserved for future use),”visited”:0 or 1(opt,reserved for future use),”totalneedSend”: int(total Message need to send),”exe_time”:int(total task should be executed),”mapto”:int(The PE has been mapped to)}  </p>
-<h3 id="3-For-SMART-NoC"><a href="#3-For-SMART-NoC" class="headerlink" title="3. For SMART NoC:"></a>3. For SMART NoC:</h3><table>
-<thead>
-<tr>
-<th>New Parameters</th>
-<th>Configure File</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>–smart2D</td>
-<td>GarnetNetwork.py</td>
-<td>Enable SMART-2D</td>
-</tr>
-<tr>
-<td>–single-flit</td>
-<td>GarnetNetwork.py</td>
-<td>Enable Single-flit transmitting</td>
-</tr>
-<tr>
-<td></td>
-<td>Network.py</td>
-<td>(As multi-flits transmitting is not working yet)</td>
-</tr>
-<tr>
-<td>–routing algorithm</td>
-<td>GarnetNetwork.py</td>
-<td>Set the value to 2 to enable the custom routing algorithm that follows timePoints.json    Use with –central in Network.py</td>
-</tr>
-</tbody></table>
-<pre><code>    example: ./build/Garnet_standalone/gem5.debug configs/example/garnet_synth_traffic.py --network=garnet2.0 --num-cpus=64 --num-dirs=64 --topology=Mesh_XY --mesh-rows=8 --sim-cycles=1000000 --single-flit --synthetic=taskgraph --smart --smart_hpcmax=4 --filename=./autocor_Mesh8x8_AIR1_XY.json  
+<h2 id="To-install-this-simulator"><a href="#To-install-this-simulator" class="headerlink" title="To install this simulator:"></a>To install this simulator:</h2><ul>
+<li><ol>
+<li>Download gem5: <a href="https://github.com/Dawnzju/gem5">https://github.com/Dawnzju/gem5</a> (This is the version I am working on. Recommanded since the patch can be easily applied)  </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Check the python version: Python 2.7.17 :: Anaconda, Inc. (conda activate py27)  </li>
+</ol>
+</li>
+<li><ol start="3">
+<li>Make sure the original gem5 can be compiled and executed.  </li>
+</ol>
+</li>
+<li><ol start="4">
+<li>Download and install JSONcpp: <a href="https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header">https://github.com/open-source-parsers/jsoncpp#generating-amalgamated-source-and-header</a>  </li>
+</ol>
+</li>
+<li><ol start="5">
+<li>Paste configs to gem5 folder</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>Download NoC.patch file in this repo to gem5 folder.  </li>
+</ol>
+</li>
+<li><ol start="6">
+<li>Apply this patch using command: git apply NoC.patch  </li>
+</ol>
+</li>
+<li><ol start="7">
+<li>Compile again: scons build/Garnet_standalone/gem5.debug -j25 NUMBER_BITS_PER_SET=256  </li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="To-use-this-simulator"><a href="#To-use-this-simulator" class="headerlink" title="To use this simulator:"></a>To use this simulator:</h2><ul>
+<li>Original traffic pattern for NoC are supported:  <pre><code>  https://www.gem5.org/documentation/general_docs/ruby/garnet_synthetic_traffic/  
 </code></pre>
-<h3 id="4-For-ArSMART-NoC"><a href="#4-For-ArSMART-NoC" class="headerlink" title="4. For ArSMART NoC:"></a>4. For ArSMART NoC:</h3><p>please read this paper:  <a href="https://ieeexplore.ieee.org/abstract/document/9464312">https://ieeexplore.ieee.org/abstract/document/9464312</a><br>–central    GarnetNetwork.py    Enable the bypass at routers for the ArSMART    Use with –routing-algorithm=2  Network.py  –debug-flags=GarnetSyntheticTraffic   Print debug information   </p>
-<p>example: ./build/Garnet_standalone/gem5.debug –debug-flags=GarnetSyntheticTraffic configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –smart_hpcmax=8 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –central –filename=./autocor_Mesh8x8_AIR1_XY.json </p>
+</li>
+<li>Prepare the task graph file with mapping and routing information  <ul>
+<li>The task graph is saved in a json file: one task with out links is saved as:<br>  “9”: {“total_needReceive”: 93, “input_links”: [], “start_time”: 0, “out_links”: [[[2, 93, [], [[9, “S”], [17, “S”], [25, “S”], [33, “E”], [34, “E”], [35, “E”]], 1, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “E”], [12, “S”], [20, “S”], [28, “S”]], 2, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “S”], [35, “E”]], 3, 9, 36], [2, 93, [], [[9, “E”], [10, “S”], [18, “S”], [26, “E”], [27, “E”], [28, “S”]], 6, 9, 36], [2, 93, [], [[9, “E”], [10, “E”], [11, “S”], [19, “S”], [27, “E”], [28, “S”]], 6, 9, 36]]], “end_time”: 0, “visited”: 0, “total_needSend”: 93, “exe_time”: 102, “mapto”: 9}  </li>
+<li><strong>taskid(str)</strong>:{<strong>“total_needReceive”</strong>:int(total message need to be received), <strong>“input_links”</strong>: list(opt,reserved for future use), <strong>“start_time”</strong>: int(opt,reserved for future use), <strong>“out put links”</strong>: [[link1[candidata path1: destinationTaskId,messagesize,priority(opt,reserved for future use),path,candidateCount,sourceRouter,destinationRouter],[candidata path2],[candidata path3]],[link2],[link3]],<strong>“endTime”</strong>:int(opt,reserved for future use),<strong>“visited”</strong>:0 or 1(opt,reserved for future use),<strong>“totalneedSend”</strong>: int(total Message need to send),<strong>“exe_time”</strong>:int(total task should be executed),<strong>“mapto”</strong>:int(The PE has been mapped to)}  </li>
+<li>File name format: appName_Meshxxx_applicationInjectRate_Method.json  </li>
+</ul>
+</li>
+<li><ol start="3">
+<li>Options:  </li>
+</ol>
+<ul>
+<li> <strong>–num-cpus</strong>  Number of PEs</li>
+<li> <strong>–num-dirs</strong> </li>
+<li> <strong>–sim-cycles</strong> Number of simulation cycles</li>
+<li> <strong>–topology</strong> NoC topology</li>
+<li> <strong>–debug-flags=GarnetSyntheticTraffic</strong> Show the debug information</li>
+<li> <strong>–network=garnet2.0</strong> Enable garnet network</li>
+<li> <strong>–mesh-rows</strong>  Mesh size</li>
+<li> <strong>–synthetic</strong> Synthetic traffic loads</li>
+<li> <strong>–smart_hpcmax=8</strong>  Number of hops can be traversed in one cycle </li>
+<li> <strong>Example</strong>: ./build/Garnet_standalone/gem5.debug –debug-flags=GarnetSyntheticTraffic configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –filename=Example_Mesh8x8_AIR1_xy.json  </li>
+</ul>
+<ul>
+<li>For SMART NoC:  <ul>
+<li> <strong>–smart</strong> (GarnetNetwork.py/Network.py)  Enable SMART  </li>
+<li> <strong>–smart2D</strong> (GarnetNetwork.py/Network.py)  Enable SMART-2D          </li>
+</ul>
+<ul>
+<li><strong>Example</strong>: ./build/Garnet_standalone/gem5.debug –debug-flags=GarnetSyntheticTraffic configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –smart –smart_hpcmax=4 –filename=Example_Mesh8x8_AIR1_xy.json  </li>
+</ul>
+</li>
+<li>For ArSMART NoC:  <ul>
+<li>Please read this paper:  <a href="https://ieeexplore.ieee.org/abstract/document/9464312">https://ieeexplore.ieee.org/abstract/document/9464312</a>  </li>
+<li><strong>–central</strong>    (GarnetNetwork.py/Network.py)    Enable the bypass at routers for the ArSMART </li>
+<li><strong>–filename</strong> (GarnetNetwork.py/Network.py) The routing and mapping configuration file      </li>
+<li><strong>Example</strong>: ./build/Garnet_standalone/gem5.debug –debug-flags=GarnetSyntheticTraffic configs/example/garnet_synth_traffic.py –network=garnet2.0 –num-cpus=64 –num-dirs=64 –smart_hpcmax=8 –topology=Mesh_XY –mesh-rows=8 –sim-cycles=1000000 –single-flit –synthetic=taskgraph –central –filename=Example_Mesh8x8_AIR1_xy.json</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mapping-and-routing"><a href="#Mapping-and-routing" class="headerlink" title="Mapping and routing"></a>Mapping and routing</h2><ul>
+<li><p>Minimize contention via direct and indirect route:  </p>
+<ul>
+<li><p>Peng Chen, Hui Chen, Jun Zhou, Mengquan Li, Weichen Liu, Chunhua Xiao, Yaoyao Ye, Nan Guan, ``Contention Minimization in Emerging SMART NoC via Direct and Indirect Routes.’’ in IEEE Transactions on Computers (TC). 2021</p>
+</li>
+<li><p><strong>Example</strong>: Example_Mesh8x8_AIR1_basic.json | Example_Mesh8x8_AIR1_improved.json</p>
+</li>
+</ul>
+</li>
+<li><p>Mapping and routing co-optimization:  </p>
+<ul>
+<li><p>Hui Chen, Zihao Zhang, Peng Chen, Xiangzhong Luo, Shiqing Li, Weichen Liu, “MARCO: A High-performance Task Mapping and Routing Co-optimization Framework for Point-to-Point NoC-based Heterogeneous Computing Systems”, in ACM Transactions on Embedded Computing Systems, doi: 10.1145/3476985</p>
+</li>
+<li><p><strong>Example</strong>: Example_Mesh8x8_AIR1_coop.json </p>
+</li>
+<li><p><a href="https://github.com/Dawnzju/2-MARCO">https://github.com/Dawnzju/2-MARCO</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Mapping and routing co-optimization:  </p>
+<ul>
+<li><p>Hui Chen, Peng Chen, Xiangzhong Luo, Shuohuai, Weichen Liu, ``LAMP: Load-balanced Multipath Parallel Transmission in Point-to-point NoCs.’’ IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD). 2022.</p>
+</li>
+<li><p><strong>Example</strong>: Example_Mesh8x8_AIR1_split.json </p>
+</li>
+<li><p><a href="https://github.com/Dawnzju/3-DataSplitting">https://github.com/Dawnzju/3-DataSplitting</a></p>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Manual</category>
